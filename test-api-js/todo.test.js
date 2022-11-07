@@ -19,9 +19,33 @@ describe('todo test suite', () => {
         expect(todo_service.get_todos().todo.length).toEqual(3);
     });
 
-    
+    test("Add-todo",()=>{
+        todo_service.add_todo({"title":"hari",
+            "description": "psd",
+            "done": true
+    })
+      expect(todo_service.get_todos().todo.length).toEqual(4);
 
-    // Write all your test cases here that corresponds to software requirements
+    });
+
+
+    test("Delete",()=>{
+        todo_service.delete_todo("T3")
+      expect(todo_service.get_todos().todo.length).toEqual(3);
+
+    });
+
+    test("Update",()=>{
+        todo_service.update_todo("T1",
+        {
+        "title":"hari",
+        "description": "psd",
+        "done": true
+        }
+)
+      expect(todo_service.get_todos().todo.length).toEqual(3);
+
+    });
 
 
 });
